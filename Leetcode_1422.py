@@ -1,0 +1,15 @@
+class Solution:
+    def maxScore(self, s: str) -> int:
+        max_score = count_zero_left = 0
+        count_ones_right = s.count('1')
+
+        for i in range(len(s)-1):
+            count_zero_left += s[i] == '0'
+            count_ones_right -= s[i] == '1'
+            max_score = max(max_score, count_zero_left + count_ones_right)
+
+        return max_score
+
+sol = Solution()
+
+print(sol.maxScore('011101'))
